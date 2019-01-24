@@ -7,14 +7,24 @@
 //
 
 import UIKit
+import AccountKit
 
 class ViewController: UIViewController {
+    
+    var accountKit: AKFAccountKit!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+
+        if(accountKit == nil){
+            self.accountKit = AKFAccountKit(responseType: .accessToken)
+        }
     }
 
-
+    @IBAction func signout(_ sender: Any) {
+        accountKit.logOut()
+        dismiss(animated: true, completion: nil)
+    }
+    
 }
 
