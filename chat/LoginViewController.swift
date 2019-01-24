@@ -9,7 +9,7 @@
 import UIKit
 import AccountKit
 
-class loginViewController: UIViewController, AKFViewControllerDelegate {
+class LoginViewController: UIViewController, AKFViewControllerDelegate {
     
     @IBOutlet weak var login: UIButton!
     @IBOutlet weak var signup: UIButton!
@@ -25,9 +25,9 @@ class loginViewController: UIViewController, AKFViewControllerDelegate {
         
     }
     
-    func prepareLoginViewController(_ LoginViewController: AKFViewController){
-        LoginViewController.delegate = self
-        LoginViewController.setAdvancedUIManager(nil)
+    func prepareLoginViewController(_ loginViewController: AKFViewController){
+        loginViewController.delegate = self
+        loginViewController.setAdvancedUIManager(nil)
         
         //theme customizations
         let theme = AKFTheme.default()
@@ -38,7 +38,7 @@ class loginViewController: UIViewController, AKFViewControllerDelegate {
         theme.statusBarStyle = .lightContent
         theme.textColor = UIColor.lightGray
         theme.titleColor = UIColor.lightGray
-        LoginViewController.setTheme(theme)
+        loginViewController.setTheme(theme)
     }
     
     @IBAction func login(_ sender: Any) {

@@ -9,7 +9,7 @@
 import UIKit
 import AccountKit
 
-class ViewController: UIViewController {
+class ChannelViewController: UIViewController {
     
     var accountKit: AKFAccountKit!
 

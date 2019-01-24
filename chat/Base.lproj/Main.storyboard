@@ -13,7 +13,7 @@
         <!--Login View Controller-->
         <scene sceneID="R4R-5v-ptt">
             <objects>
-                <viewController id="FJ3-qM-nwN" customClass="loginViewController" customModule="chat" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="FJ3-qM-nwN" customClass="LoginViewController" customModule="chat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="re2-gr-gnm">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -111,10 +111,10 @@
             </objects>
             <point key="canvasLocation" x="-588" y="831.63418290854577"/>
         </scene>
-        <!--View Controller-->
+        <!--Channel View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="main" id="BYZ-38-t0r" customClass="ViewController" customModule="chat" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="main" id="BYZ-38-t0r" customClass="ChannelViewController" customModule="chat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -133,10 +133,10 @@
             </objects>
             <point key="canvasLocation" x="1431.2" y="122.78860569715144"/>
         </scene>
-        <!--View Controller-->
+        <!--Chat View Controller-->
         <scene sceneID="Qk1-fS-nwh">
             <objects>
-                <viewController id="1IJ-u0-f8W" sceneMemberID="viewController">
+                <viewController id="1IJ-u0-f8W" customClass="ChatViewController" customModule="chat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OBf-bA-4lX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -166,6 +166,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hTx-It-wZq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="492" y="122.78860569715144"/>
+        </scene>
+        <!--Settings View Controller-->
+        <scene sceneID="jyW-0B-u4t">
+            <objects>
+                <viewController id="TSf-I5-GKU" customClass="SettingsViewController" customModule="chat" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="h79-u7-DIN">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="rpg-xe-siJ"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aiD-ab-Lkk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3111" y="123"/>
         </scene>
     </scenes>
 </document>
