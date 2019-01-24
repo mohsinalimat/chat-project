@@ -9,17 +9,17 @@
 /* Begin PBXBuildFile section */
 		600CE6C0C7580C15DABD4421 /* Pods_chatUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A1B06E641ED83426E4F0154 /* Pods_chatUITests.framework */; };
 		8326BF9E21F90FCF00AD86E3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8326BF9D21F90FCF00AD86E3 /* AppDelegate.swift */; };
-		8326BFA021F90FCF00AD86E3 /* ChannelsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8326BF9F21F90FCF00AD86E3 /* ChannelsViewController.swift */; };
+		8326BFA021F90FCF00AD86E3 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8326BF9F21F90FCF00AD86E3 /* ChatViewController.swift */; };
 		8326BFA321F90FCF00AD86E3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8326BFA121F90FCF00AD86E3 /* Main.storyboard */; };
 		8326BFA521F90FD100AD86E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8326BFA421F90FD100AD86E3 /* Assets.xcassets */; };
 		8326BFA821F90FD100AD86E3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8326BFA621F90FD100AD86E3 /* LaunchScreen.storyboard */; };
 		8326BFB321F90FD100AD86E3 /* chatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8326BFB221F90FD100AD86E3 /* chatTests.swift */; };
 		8326BFBE21F90FD100AD86E3 /* chatUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8326BFBD21F90FD100AD86E3 /* chatUITests.swift */; };
-		8326BFCC21F93B1700AD86E3 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8326BFCB21F93B1700AD86E3 /* LoginViewController.swift */; };
+		8326BFCC21F93B1700AD86E3 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8326BFCB21F93B1700AD86E3 /* SignUpViewController.swift */; };
 		835568A221F9B7B90023AC98 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 835568A121F9B7B90023AC98 /* GoogleService-Info.plist */; };
-		835568A421FA28990023AC98 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835568A321FA28990023AC98 /* ChatViewController.swift */; };
 		835568A621FA28D50023AC98 /* UsernameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835568A521FA28D50023AC98 /* UsernameViewController.swift */; };
 		835568A821FA28EE0023AC98 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835568A721FA28EE0023AC98 /* SettingsViewController.swift */; };
+		835568B421FA348D0023AC98 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835568B321FA348D0023AC98 /* LogInViewController.swift */; };
 		9EBAEFE57A3F8766D74B0C7E /* Pods_chatTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48663CD51FC61BBC7F990E63 /* Pods_chatTests.framework */; };
 		BFAA5FE5C90E6B9CD855D266 /* Pods_chat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 212562AB09D4F8871593B01B /* Pods_chat.framework */; };
 /* End PBXBuildFile section */
@@ -52,7 +52,7 @@
 		7764D0614D5A1364B68E2884 /* Pods-chatTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-chatTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-chatTests/Pods-chatTests.debug.xcconfig"; sourceTree = "<group>"; };
 		8326BF9A21F90FCF00AD86E3 /* chat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = chat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8326BF9D21F90FCF00AD86E3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8326BF9F21F90FCF00AD86E3 /* ChannelsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelsViewController.swift; sourceTree = "<group>"; };
+		8326BF9F21F90FCF00AD86E3 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		8326BFA221F90FCF00AD86E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8326BFA421F90FD100AD86E3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8326BFA721F90FD100AD86E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -63,11 +63,11 @@
 		8326BFB921F90FD100AD86E3 /* chatUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = chatUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8326BFBD21F90FD100AD86E3 /* chatUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = chatUITests.swift; sourceTree = "<group>"; };
 		8326BFBF21F90FD100AD86E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8326BFCB21F93B1700AD86E3 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		8326BFCB21F93B1700AD86E3 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		835568A121F9B7B90023AC98 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		835568A321FA28990023AC98 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		835568A521FA28D50023AC98 /* UsernameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsernameViewController.swift; sourceTree = "<group>"; };
 		835568A721FA28EE0023AC98 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		835568B321FA348D0023AC98 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		8B2A16879B88DAED7EB4B531 /* Pods-chat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-chat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-chat/Pods-chat.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -125,12 +125,12 @@
 			isa = PBXGroup;
 			children = (
 				8326BF9D21F90FCF00AD86E3 /* AppDelegate.swift */,
-				8326BFCB21F93B1700AD86E3 /* LoginViewController.swift */,
-				8326BF9F21F90FCF00AD86E3 /* ChannelsViewController.swift */,
-				835568A321FA28990023AC98 /* ChatViewController.swift */,
+				8326BFCB21F93B1700AD86E3 /* SignUpViewController.swift */,
+				835568B321FA348D0023AC98 /* LogInViewController.swift */,
+				835568A521FA28D50023AC98 /* UsernameViewController.swift */,
+				8326BF9F21F90FCF00AD86E3 /* ChatViewController.swift */,
 				835568A721FA28EE0023AC98 /* SettingsViewController.swift */,
 				8326BFA121F90FCF00AD86E3 /* Main.storyboard */,
-				835568A521FA28D50023AC98 /* UsernameViewController.swift */,
 				8326BFA421F90FD100AD86E3 /* Assets.xcassets */,
 				8326BFA621F90FD100AD86E3 /* LaunchScreen.storyboard */,
 				8326BFA921F90FD100AD86E3 /* Info.plist */,
@@ -366,10 +366,14 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-chat/Pods-chat-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/MessageInputBar/MessageInputBar.framework",
 				"${BUILT_PRODUCTS_DIR}/MessageKit/MessageKit.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -377,10 +381,14 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MessageInputBar.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MessageKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -399,12 +407,14 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-chat/Pods-chat-resources.sh",
 				"${PODS_ROOT}/AccountKit/AccountKitStrings.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseFirestore/gRPCCertificates-Firestore.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AccountKitStrings.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/gRPCCertificates-Firestore.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -441,10 +451,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				835568A621FA28D50023AC98 /* UsernameViewController.swift in Sources */,
-				8326BFA021F90FCF00AD86E3 /* ChannelsViewController.swift in Sources */,
+				8326BFA021F90FCF00AD86E3 /* ChatViewController.swift in Sources */,
+				835568B421FA348D0023AC98 /* LogInViewController.swift in Sources */,
 				8326BF9E21F90FCF00AD86E3 /* AppDelegate.swift in Sources */,
-				835568A421FA28990023AC98 /* ChatViewController.swift in Sources */,
-				8326BFCC21F93B1700AD86E3 /* LoginViewController.swift in Sources */,
+				8326BFCC21F93B1700AD86E3 /* SignUpViewController.swift in Sources */,
 				835568A821FA28EE0023AC98 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

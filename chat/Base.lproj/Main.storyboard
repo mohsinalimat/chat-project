@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Login View Controller-->
+        <!--Sign Up View Controller-->
         <scene sceneID="R4R-5v-ptt">
             <objects>
-                <viewController id="FJ3-qM-nwN" customClass="LoginViewController" customModule="chat" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="FJ3-qM-nwN" customClass="SignUpViewController" customModule="chat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="re2-gr-gnm">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -67,15 +67,15 @@
             </objects>
             <point key="canvasLocation" x="-588" y="122.78860569715144"/>
         </scene>
-        <!--View Controller-->
+        <!--Username View Controller-->
         <scene sceneID="hta-M1-DBG">
             <objects>
-                <viewController storyboardIdentifier="name" id="NpD-7k-y8y" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="name" id="NpD-7k-y8y" customClass="UsernameViewController" customModule="chat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Vh2-cz-Z4f">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uPd-k9-YMD">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter first and last name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uPd-k9-YMD">
                                 <rect key="frame" x="47" y="205" width="250" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
@@ -111,10 +111,10 @@
             </objects>
             <point key="canvasLocation" x="-588" y="831.63418290854577"/>
         </scene>
-        <!--Channels View Controller-->
+        <!--Chat View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="main" id="BYZ-38-t0r" customClass="ChannelsViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="main" id="BYZ-38-t0r" customClass="ChatViewController" customModule="chat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -122,7 +122,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="hZY-sN-Zox">
-                        <barButtonItem key="leftBarButtonItem" title="SIGN OUT" id="SfN-Sc-hiW">
+                        <barButtonItem key="leftBarButtonItem" title="Sign Out" id="SfN-Sc-hiW">
                             <connections>
                                 <action selector="signout:" destination="BYZ-38-t0r" id="qRK-tY-LUf"/>
                             </connections>
@@ -131,22 +131,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1431.2" y="122.78860569715144"/>
-        </scene>
-        <!--Chat View Controller-->
-        <scene sceneID="Qk1-fS-nwh">
-            <objects>
-                <viewController id="1IJ-u0-f8W" customClass="ChatViewController" customModule="chat" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="OBf-bA-4lX">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="PVC-h3-qf9"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="h0f-P7-8IK" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2292" y="123"/>
+            <point key="canvasLocation" x="919" y="123"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="drh-BG-6Zt">
@@ -165,7 +150,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hTx-It-wZq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="492" y="122.78860569715144"/>
+            <point key="canvasLocation" x="174" y="123"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="jyW-0B-u4t">
@@ -180,7 +165,22 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aiD-ab-Lkk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3111" y="123"/>
+            <point key="canvasLocation" x="1684" y="123"/>
+        </scene>
+        <!--Log In View Controller-->
+        <scene sceneID="f4X-9M-zDY">
+            <objects>
+                <viewController id="WjM-17-MB6" customClass="LogInViewController" customModule="chat" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Lfd-Da-gSL">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="TbK-fb-0Yw"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cAK-dV-igr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="174" y="832"/>
         </scene>
     </scenes>
 </document>
