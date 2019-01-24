@@ -9,7 +9,7 @@
 import UIKit
 import AccountKit
 
-class LoginViewController: UIViewController, AKFViewControllerDelegate {
+class SignUpViewController: UIViewController, AKFViewControllerDelegate {
     
     @IBOutlet weak var login: UIButton!
     @IBOutlet weak var signup: UIButton!
@@ -52,6 +52,7 @@ class LoginViewController: UIViewController, AKFViewControllerDelegate {
         self.prepareLoginViewController(viewController)
         self.present(viewController as! UIViewController, animated: true, completion: nil)
     }
+    
     
     func viewController(_ viewController: (UIViewController & AKFViewController)!,
                         didCompleteLoginWith accessToken: AKFAccessToken!, state: String!) {
