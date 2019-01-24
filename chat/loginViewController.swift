@@ -20,19 +20,9 @@ class loginViewController: UIViewController, AKFViewControllerDelegate {
         super.viewDidLoad()
 
         if(accountKit == nil){
-            self.accountKit = AKFAccountKit(responseType: .authorizationCode)
+            self.accountKit = AKFAccountKit(responseType:.accessToken)
         }
         
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        if(accountKit.currentAccessToken != nil){
-            DispatchQueue.main.async(execute: {
-                self.performSegue(withIdentifier: "showMain", sender: self)
-            })
-        }
     }
     
     func prepareLoginViewController(_ LoginViewController: AKFViewController){
@@ -51,14 +41,6 @@ class loginViewController: UIViewController, AKFViewControllerDelegate {
         LoginViewController.setTheme(theme)
     }
     
-    /*func viewController(viewController: UIViewController!, didCompleteLoginWithAccessToken accessToken: AKFAccessToken!, state: String!) {
-        print("AAAAAAAAAAAAAAAAAAAAAAAAAAA")
-    }
-    */
-    func viewController(_ viewController: (UIViewController & AKFViewController)!, didCompleteLoginWithAuthorizationCode code: String!, state: String!) {
-        self.performSegue(withIdentifier: "showUsername", sender: self)
-    }
-    
     @IBAction func login(_ sender: Any) {
         
     }
@@ -69,6 +51,15 @@ class loginViewController: UIViewController, AKFViewControllerDelegate {
         viewController.enableSendToFacebook = true
         self.prepareLoginViewController(viewController)
         self.present(viewController as! UIViewController, animated: true, completion: nil)
+    }
+    
+    func viewController(_ viewController: (UIViewController & AKFViewController)!,
+                        didCompleteLoginWith accessToken: AKFAccessToken!, state: String!) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let view = storyboard.instantiateViewController(withIdentifier: "name") as UIViewController
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        //show window
+        appDelegate.window?.rootViewController = view
     }
     
     
