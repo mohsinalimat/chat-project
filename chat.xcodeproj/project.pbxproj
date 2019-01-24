@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		600CE6C0C7580C15DABD4421 /* Pods_chatUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A1B06E641ED83426E4F0154 /* Pods_chatUITests.framework */; };
 		8326BF9E21F90FCF00AD86E3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8326BF9D21F90FCF00AD86E3 /* AppDelegate.swift */; };
-		8326BFA021F90FCF00AD86E3 /* ChannelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8326BF9F21F90FCF00AD86E3 /* ChannelViewController.swift */; };
+		8326BFA021F90FCF00AD86E3 /* ChannelsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8326BF9F21F90FCF00AD86E3 /* ChannelsViewController.swift */; };
 		8326BFA321F90FCF00AD86E3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8326BFA121F90FCF00AD86E3 /* Main.storyboard */; };
 		8326BFA521F90FD100AD86E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8326BFA421F90FD100AD86E3 /* Assets.xcassets */; };
 		8326BFA821F90FD100AD86E3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8326BFA621F90FD100AD86E3 /* LaunchScreen.storyboard */; };
@@ -52,7 +52,7 @@
 		7764D0614D5A1364B68E2884 /* Pods-chatTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-chatTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-chatTests/Pods-chatTests.debug.xcconfig"; sourceTree = "<group>"; };
 		8326BF9A21F90FCF00AD86E3 /* chat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = chat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8326BF9D21F90FCF00AD86E3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8326BF9F21F90FCF00AD86E3 /* ChannelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelViewController.swift; sourceTree = "<group>"; };
+		8326BF9F21F90FCF00AD86E3 /* ChannelsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelsViewController.swift; sourceTree = "<group>"; };
 		8326BFA221F90FCF00AD86E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8326BFA421F90FD100AD86E3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8326BFA721F90FD100AD86E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -126,7 +126,7 @@
 			children = (
 				8326BF9D21F90FCF00AD86E3 /* AppDelegate.swift */,
 				8326BFCB21F93B1700AD86E3 /* LoginViewController.swift */,
-				8326BF9F21F90FCF00AD86E3 /* ChannelViewController.swift */,
+				8326BF9F21F90FCF00AD86E3 /* ChannelsViewController.swift */,
 				835568A321FA28990023AC98 /* ChatViewController.swift */,
 				835568A721FA28EE0023AC98 /* SettingsViewController.swift */,
 				8326BFA121F90FCF00AD86E3 /* Main.storyboard */,
@@ -441,7 +441,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				835568A621FA28D50023AC98 /* UsernameViewController.swift in Sources */,
-				8326BFA021F90FCF00AD86E3 /* ChannelViewController.swift in Sources */,
+				8326BFA021F90FCF00AD86E3 /* ChannelsViewController.swift in Sources */,
 				8326BF9E21F90FCF00AD86E3 /* AppDelegate.swift in Sources */,
 				835568A421FA28990023AC98 /* ChatViewController.swift in Sources */,
 				8326BFCC21F93B1700AD86E3 /* LoginViewController.swift in Sources */,
