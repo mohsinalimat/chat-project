@@ -18,8 +18,8 @@ class SignUpViewController: UIViewController, AKFViewControllerDelegate {
     var accountKit: AKFAccountKit!
     var loginOrSignUp = String()
     var ref: DatabaseReference?
-    var loginTest = 1
-    var signupTest = 1
+    var loginTest = Int()
+    var signupTest = Int()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,7 +63,7 @@ class SignUpViewController: UIViewController, AKFViewControllerDelegate {
         super.viewDidAppear(animated)
         
         //present alertcontroller if login and signup fails
-        if(self.loginTest == 2){
+        if(self.loginTest == 1){
             print("ERROR")
             let alert = UIAlertController(title: "ERROR", message: "Please sign up first!", preferredStyle: UIAlertController.Style.alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
@@ -76,7 +76,7 @@ class SignUpViewController: UIViewController, AKFViewControllerDelegate {
             let alert = UIAlertController(title: "ERROR", message: "Phone number already exists!", preferredStyle: UIAlertController.Style.alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
-        }else if(signupTest == 0){
+        }else if(signupTest == 1){
             //move to username viewcontroller
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let view = storyboard.instantiateViewController(withIdentifier: "usernameViewController") as UIViewController
@@ -122,7 +122,7 @@ class SignUpViewController: UIViewController, AKFViewControllerDelegate {
                     let phoneNum = data["phone_number"]
                 {
                     if(globalVar.number == phoneNum){
-                        self.loginTest+=1
+                        self.loginTest+=10
                         globalVar.fullName = full_name
                         //move to navigation viewcontroller
                         let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -133,10 +133,6 @@ class SignUpViewController: UIViewController, AKFViewControllerDelegate {
                     }
                 }
             })
-            
-            if(loginTest == 1){
-                loginTest = 2
-            }
             signupTest = -1
         }else if(loginOrSignUp == "signup"){
             signupTest = 1
@@ -147,15 +143,13 @@ class SignUpViewController: UIViewController, AKFViewControllerDelegate {
                     let phoneNum = data["phone_number"]
                 {
                     if(globalVar.number == phoneNum){
-                       self.signupTest+=2
+                       self.signupTest+=10
                     }
                 }
             })
-            if(signupTest == 1){
-                signupTest = 0
-            }
             loginTest = -1
         }
+        
     }
     
     
