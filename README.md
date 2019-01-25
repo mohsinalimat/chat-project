@@ -1,4 +1,4 @@
 # chat-project 
 ### using 
-*facebook AccountKit
-*firebase 
+* facebook AccountKit
+* firebase 
