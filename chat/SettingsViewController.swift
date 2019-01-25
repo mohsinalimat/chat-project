@@ -23,7 +23,14 @@ class SettingsViewController: UIViewController {
         self.view.backgroundColor = UIColor(red:0.44, green:0.82, blue:0.82, alpha:1.0)
     }
     
-
+    @IBAction func backButton(_ sender: Any) {
+        //move to navigation viewcontroller
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let view = storyboard.instantiateViewController(withIdentifier: "navigationViewController") as! UINavigationController
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.window?.rootViewController = view
+    }
+    
     /*
     // MARK: - Navigation
 

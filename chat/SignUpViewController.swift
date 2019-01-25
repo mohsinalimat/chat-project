@@ -18,10 +18,13 @@ class SignUpViewController: UIViewController, AKFViewControllerDelegate {
     var accountKit: AKFAccountKit!
     var loginOrSignUp = String()
     var ref: DatabaseReference?
+    var loginTest = 1
+    var signupTest = 1
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        //saving phonenumber to global variable
         if(accountKit == nil){
             self.accountKit = AKFAccountKit(responseType:.accessToken)
             self.accountKit.requestAccount({ (account, error) in
@@ -56,6 +59,32 @@ class SignUpViewController: UIViewController, AKFViewControllerDelegate {
         loginViewController.setTheme(theme)
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        //present alertcontroller if login and signup fails
+        if(self.loginTest == 2){
+            print("ERROR")
+            let alert = UIAlertController(title: "ERROR", message: "Please sign up first!", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            signupTest = -1
+        }
+        
+        if(signupTest > 1){
+            print("ERROR")
+            let alert = UIAlertController(title: "ERROR", message: "Phone number already exists!", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }else if(signupTest == 0){
+            //move to username viewcontroller
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let view = storyboard.instantiateViewController(withIdentifier: "usernameViewController") as UIViewController
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            appDelegate.window?.rootViewController = view
+        }
+    }
+    
     //login button function
     @IBAction func login(_ sender: Any) {
         loginOrSignUp = "login"
@@ -84,7 +113,7 @@ class SignUpViewController: UIViewController, AKFViewControllerDelegate {
     func viewController(_ viewController: (UIViewController & AKFViewController)!,
                         didCompleteLoginWith accessToken: AKFAccessToken!, state: String!) {
         if(loginOrSignUp == "login"){
-            var phoneNumberDoesNotExist = 0
+            loginTest = 1
             //check if the phone number exists in the database if so use the name in the database
             ref = Database.database().reference()
             ref?.child("users").observe(.childAdded, with: { (snapshot) in
@@ -93,7 +122,7 @@ class SignUpViewController: UIViewController, AKFViewControllerDelegate {
                     let phoneNum = data["phone_number"]
                 {
                     if(globalVar.number == phoneNum){
-                        phoneNumberDoesNotExist+=1
+                        self.loginTest+=1
                         globalVar.fullName = full_name
                         //move to navigation viewcontroller
                         let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -105,15 +134,12 @@ class SignUpViewController: UIViewController, AKFViewControllerDelegate {
                 }
             })
             
-            //if it doesnt exist present alert message
-            if(phoneNumberDoesNotExist != 0){
-                let alert = UIAlertController(title: "ERROR", message: "Please sign up first!.", preferredStyle: UIAlertController.Style.alert)
-                alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-                self.present(alert, animated: true, completion: nil)
+            if(loginTest == 1){
+                loginTest = 2
             }
-            
-        }else{
-            var phoneNumberExists = 0
+            signupTest = -1
+        }else if(loginOrSignUp == "signup"){
+            signupTest = 1
             //check if the phone number exists in the database if so use the name in the database
             ref = Database.database().reference()
             ref?.child("users").observe(.childAdded, with: { (snapshot) in
@@ -121,22 +147,14 @@ class SignUpViewController: UIViewController, AKFViewControllerDelegate {
                     let phoneNum = data["phone_number"]
                 {
                     if(globalVar.number == phoneNum){
-                        phoneNumberExists+=1
-                        //present alert message
-                        let alert = UIAlertController(title: "ERROR", message: "Phone number already exists!", preferredStyle: UIAlertController.Style.alert)
-                        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-                        self.present(alert, animated: true, completion: nil)
+                       self.signupTest+=2
                     }
                 }
             })
-        
-            if(phoneNumberExists != 0){
-                //move to username viewcontroller
-                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                let view = storyboard.instantiateViewController(withIdentifier: "usernameViewController") as UIViewController
-                let appDelegate = UIApplication.shared.delegate as! AppDelegate
-                appDelegate.window?.rootViewController = view
+            if(signupTest == 1){
+                signupTest = 0
             }
+            loginTest = -1
         }
     }
     

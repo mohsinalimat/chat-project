@@ -24,9 +24,18 @@ class UsernameViewController: UIViewController {
     //saves full name in global fullname variable
     @IBAction func `continue`(_ sender: Any) {
         globalVar.fullName = fullName.text!
-        let ref = Constants.refs.databaseUsers.childByAutoId()
-        let userData = ["full_name": globalVar.fullName, "phone_number": globalVar.number]
-        ref.setValue(userData)
+        if((fullName.text?.isEmpty)!){
+            let alert = UIAlertController(title: "ERROR", message: "Please enter a name!", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }else{
+            //saving user info to database
+            let ref = Constants.refs.databaseUsers.childByAutoId()
+            let userData = ["full_name": globalVar.fullName, "phone_number": globalVar.number]
+            ref.setValue(userData)
+            
+        }
+        
     }
 
     
