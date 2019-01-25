@@ -1,4 +1,7 @@
 # [Chat Project] 
-### using 
+
+#### Login/Signup 
 * facebook AccountKit
+
+### Database 
 * firebase 
