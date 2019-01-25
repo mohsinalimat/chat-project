@@ -7,16 +7,26 @@
 //
 
 import UIKit
+import MessageKit
 
 class UsernameViewController: UIViewController {
-
+    
+    @IBOutlet weak var fullName: UITextField!
+    @IBOutlet weak var `continue`: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
+        `continue`.backgroundColor = UIColor(red:0.96, green:0.72, blue:0.74, alpha:1.0)
+        self.view.backgroundColor = UIColor(red:0.44, green:0.82, blue:0.82, alpha:1.0)
     }
     
+    //saves full name in global fullname variable
+    @IBAction func `continue`(_ sender: Any) {
+        globalVar.fullName = fullName.text!
+    }
 
+    
     /*
     // MARK: - Navigation
 

@@ -19,7 +19,9 @@
 		835568A221F9B7B90023AC98 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 835568A121F9B7B90023AC98 /* GoogleService-Info.plist */; };
 		835568A621FA28D50023AC98 /* UsernameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835568A521FA28D50023AC98 /* UsernameViewController.swift */; };
 		835568A821FA28EE0023AC98 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835568A721FA28EE0023AC98 /* SettingsViewController.swift */; };
-		835568B421FA348D0023AC98 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835568B321FA348D0023AC98 /* LogInViewController.swift */; };
+		835568B621FA39540023AC98 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835568B521FA39540023AC98 /* Message.swift */; };
+		835568BA21FA622A0023AC98 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835568B921FA622A0023AC98 /* Constants.swift */; };
+		835568C021FAA94E0023AC98 /* GlobalVar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835568BF21FAA94E0023AC98 /* GlobalVar.swift */; };
 		9EBAEFE57A3F8766D74B0C7E /* Pods_chatTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48663CD51FC61BBC7F990E63 /* Pods_chatTests.framework */; };
 		BFAA5FE5C90E6B9CD855D266 /* Pods_chat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 212562AB09D4F8871593B01B /* Pods_chat.framework */; };
 /* End PBXBuildFile section */
@@ -67,7 +69,9 @@
 		835568A121F9B7B90023AC98 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		835568A521FA28D50023AC98 /* UsernameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsernameViewController.swift; sourceTree = "<group>"; };
 		835568A721FA28EE0023AC98 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		835568B321FA348D0023AC98 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		835568B521FA39540023AC98 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		835568B921FA622A0023AC98 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		835568BF21FAA94E0023AC98 /* GlobalVar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalVar.swift; sourceTree = "<group>"; };
 		8B2A16879B88DAED7EB4B531 /* Pods-chat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-chat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-chat/Pods-chat.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -125,8 +129,10 @@
 			isa = PBXGroup;
 			children = (
 				8326BF9D21F90FCF00AD86E3 /* AppDelegate.swift */,
+				835568B521FA39540023AC98 /* Message.swift */,
+				835568BF21FAA94E0023AC98 /* GlobalVar.swift */,
+				835568B921FA622A0023AC98 /* Constants.swift */,
 				8326BFCB21F93B1700AD86E3 /* SignUpViewController.swift */,
-				835568B321FA348D0023AC98 /* LogInViewController.swift */,
 				835568A521FA28D50023AC98 /* UsernameViewController.swift */,
 				8326BF9F21F90FCF00AD86E3 /* ChatViewController.swift */,
 				835568A721FA28EE0023AC98 /* SettingsViewController.swift */,
@@ -452,10 +458,12 @@
 			files = (
 				835568A621FA28D50023AC98 /* UsernameViewController.swift in Sources */,
 				8326BFA021F90FCF00AD86E3 /* ChatViewController.swift in Sources */,
-				835568B421FA348D0023AC98 /* LogInViewController.swift in Sources */,
 				8326BF9E21F90FCF00AD86E3 /* AppDelegate.swift in Sources */,
 				8326BFCC21F93B1700AD86E3 /* SignUpViewController.swift in Sources */,
+				835568C021FAA94E0023AC98 /* GlobalVar.swift in Sources */,
+				835568BA21FA622A0023AC98 /* Constants.swift in Sources */,
 				835568A821FA28EE0023AC98 /* SettingsViewController.swift in Sources */,
+				835568B621FA39540023AC98 /* Message.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,11 +9,18 @@
 import UIKit
 
 class SettingsViewController: UIViewController {
+    @IBOutlet weak var fullName: UILabel!
+    @IBOutlet weak var phoneNumber: UILabel!
+    @IBOutlet weak var settingsLabel: UILabel!
+    
+    var user: User!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+                
+        fullName.text = "My name: \(user.name)"
+        phoneNumber.text = "My number is: \(user.phoneNumber)"
+        self.view.backgroundColor = UIColor(red:0.44, green:0.82, blue:0.82, alpha:1.0)
     }
     
 
