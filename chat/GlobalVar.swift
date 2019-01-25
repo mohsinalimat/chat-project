@@ -10,4 +10,5 @@ import Foundation
 
 struct globalVar{
     static var fullName = ""
+    static var number = ""
 }

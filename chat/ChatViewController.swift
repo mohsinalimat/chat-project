@@ -8,7 +8,6 @@
 
 import UIKit
 import AccountKit
-import FirebaseFirestore
 import MessageKit
 import MessageInputBar
 
@@ -17,40 +16,20 @@ class ChatViewController: MessagesViewController{
     var accountKit: AKFAccountKit!
     var messages: [Messages] = []
     var user: User!
-    var fullName = globalVar.fullName
-    var phoneNum = String()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        messagesCollectionView.messagesDataSource = self
-        messagesCollectionView.messagesLayoutDelegate = self
-        messageInputBar.delegate = self
-        messagesCollectionView.messagesDisplayDelegate = self
-
+        self.user = User(name: globalVar.fullName, phoneNumber: globalVar.number)
+        
         if(accountKit == nil){
             self.accountKit = AKFAccountKit(responseType: .accessToken)
-            accountKit.requestAccount({ (account, error) in
-                if let phoneNumber = account?.phoneNumber{
-                    self.phoneNum = phoneNumber.stringRepresentation()
-                    self.user = User(name: self.fullName, phoneNumber: self.phoneNum)
-                    //adding userdata to the database
-                    let ref = Constants.refs.databaseUsers.childByAutoId()
-                    let userData = ["full_name": self.fullName, "phone_number": self.phoneNum]
-                    ref.setValue(userData)
-                }
-            })
         }
         
         //delete avatar view
         if let layout = messagesCollectionView.collectionViewLayout as? MessagesCollectionViewFlowLayout {
             layout.setMessageIncomingAvatarSize(.zero)
             layout.setMessageOutgoingAvatarSize(.zero)
-        }
-        struct Message{
-            let user: User
-            let text:String
-            let messageId: String
         }
 
         let query = Constants.refs.databaseChats.queryLimited(toLast: 10)
@@ -70,6 +49,11 @@ class ChatViewController: MessagesViewController{
                 self?.insertNewMessage(newMessage)
             }
         })
+        
+        messagesCollectionView.messagesDataSource = self
+        messagesCollectionView.messagesLayoutDelegate = self
+        messageInputBar.delegate = self
+        messagesCollectionView.messagesDisplayDelegate = self
         
     }
     
@@ -160,12 +144,8 @@ extension ChatViewController: MessageInputBarDelegate {
     func messageInputBar(
         _ inputBar: MessageInputBar,
         didPressSendButtonWith text: String) {
-        
-        //let newMessage = Messages(user: user, text: text, messageId: UUID().uuidString)
-        
-        //messages.append(newMessage)
+                
         inputBar.inputTextView.text = ""
-        //messagesCollectionView.reloadData()
         messagesCollectionView.scrollToBottom(animated: true)
         
         let ref = Constants.refs.databaseChats.childByAutoId()

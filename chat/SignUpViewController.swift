@@ -8,6 +8,7 @@
 
 import UIKit
 import AccountKit
+import FirebaseDatabase
 
 class SignUpViewController: UIViewController, AKFViewControllerDelegate {
     
@@ -16,12 +17,18 @@ class SignUpViewController: UIViewController, AKFViewControllerDelegate {
     
     var accountKit: AKFAccountKit!
     var loginOrSignUp = String()
+    var ref: DatabaseReference?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         if(accountKit == nil){
             self.accountKit = AKFAccountKit(responseType:.accessToken)
+            self.accountKit.requestAccount({ (account, error) in
+                if let phoneNumber = account?.phoneNumber{
+                    globalVar.number = phoneNumber.stringRepresentation()
+                }
+            })
         }
         
         //ui design
@@ -53,7 +60,6 @@ class SignUpViewController: UIViewController, AKFViewControllerDelegate {
     @IBAction func login(_ sender: Any) {
         loginOrSignUp = "login"
         
-        
         //present phone authentication view
         let inputState = UUID().uuidString
         let viewController = accountKit.viewControllerForPhoneLogin(with: nil, state: inputState) as AKFViewController
@@ -78,17 +84,59 @@ class SignUpViewController: UIViewController, AKFViewControllerDelegate {
     func viewController(_ viewController: (UIViewController & AKFViewController)!,
                         didCompleteLoginWith accessToken: AKFAccessToken!, state: String!) {
         if(loginOrSignUp == "login"){
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let view = storyboard.instantiateViewController(withIdentifier: "navigationViewController") as! UINavigationController
-            let appDelegate = UIApplication.shared.delegate as! AppDelegate
-            //show window
-            appDelegate.window?.rootViewController = view
+            var phoneNumberDoesNotExist = 0
+            //check if the phone number exists in the database if so use the name in the database
+            ref = Database.database().reference()
+            ref?.child("users").observe(.childAdded, with: { (snapshot) in
+                if  let data = snapshot.value as? [String: String],
+                    let full_name = data["full_name"],
+                    let phoneNum = data["phone_number"]
+                {
+                    if(globalVar.number == phoneNum){
+                        phoneNumberDoesNotExist+=1
+                        globalVar.fullName = full_name
+                        //move to navigation viewcontroller
+                        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                        let view = storyboard.instantiateViewController(withIdentifier: "navigationViewController") as! UINavigationController
+                        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                        appDelegate.window?.rootViewController = view
+                        
+                    }
+                }
+            })
+            
+            //if it doesnt exist present alert message
+            if(phoneNumberDoesNotExist != 0){
+                let alert = UIAlertController(title: "ERROR", message: "Please sign up first!.", preferredStyle: UIAlertController.Style.alert)
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            }
+            
         }else{
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let view = storyboard.instantiateViewController(withIdentifier: "usernameViewController") as UIViewController
-            let appDelegate = UIApplication.shared.delegate as! AppDelegate
-            //show window
-            appDelegate.window?.rootViewController = view
+            var phoneNumberExists = 0
+            //check if the phone number exists in the database if so use the name in the database
+            ref = Database.database().reference()
+            ref?.child("users").observe(.childAdded, with: { (snapshot) in
+                if  let data = snapshot.value as? [String: String],
+                    let phoneNum = data["phone_number"]
+                {
+                    if(globalVar.number == phoneNum){
+                        phoneNumberExists+=1
+                        //present alert message
+                        let alert = UIAlertController(title: "ERROR", message: "Phone number already exists!", preferredStyle: UIAlertController.Style.alert)
+                        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+                        self.present(alert, animated: true, completion: nil)
+                    }
+                }
+            })
+        
+            if(phoneNumberExists != 0){
+                //move to username viewcontroller
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let view = storyboard.instantiateViewController(withIdentifier: "usernameViewController") as UIViewController
+                let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                appDelegate.window?.rootViewController = view
+            }
         }
     }
     

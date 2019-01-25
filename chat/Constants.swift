@@ -15,7 +15,6 @@ struct Constants
         static let databaseRoot = Database.database().reference()
         static let databaseChats = databaseRoot.child("chats")
         static let databaseUsers = databaseRoot.child("users")
-
     }
     
     
