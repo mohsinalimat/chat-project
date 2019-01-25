@@ -1,4 +1,4 @@
-# [Chat Project] 
+# [Chat] 
 
 ### Login/Signup 
 * facebook AccountKit
