@@ -8,14 +8,25 @@
 
 import UIKit
 import MessageKit
+import AccountKit
 
 class UsernameViewController: UIViewController {
     
     @IBOutlet weak var fullName: UITextField!
     @IBOutlet weak var `continue`: UIButton!
+    var accountKit: AKFAccountKit!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //saving phonenumber to global variable
+        if(accountKit == nil){
+            self.accountKit = AKFAccountKit(responseType:.accessToken)
+            self.accountKit.requestAccount({ (account, error) in
+                if let phoneNumber = account?.phoneNumber{
+                    globalVar.number = phoneNumber.stringRepresentation()
+                }
+            })
+        }
         // Do any additional setup after loading the view.
         `continue`.backgroundColor = UIColor(red:0.96, green:0.72, blue:0.74, alpha:1.0)
         self.view.backgroundColor = UIColor(red:0.44, green:0.82, blue:0.82, alpha:1.0)
