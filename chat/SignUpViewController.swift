@@ -121,6 +121,14 @@ class SignUpViewController: UIViewController, AKFViewControllerDelegate {
                     let full_name = data["full_name"],
                     let phoneNum = data["phone_number"]
                 {
+                    
+                    self.accountKit = AKFAccountKit(responseType:.accessToken)
+                    self.accountKit.requestAccount({ (account, error) in
+                        if let phoneNumber = account?.phoneNumber{
+                            globalVar.number = phoneNumber.stringRepresentation()
+                        }
+                    })
+                    
                     if(globalVar.number == phoneNum){
                         self.loginTest+=10
                         globalVar.fullName = full_name
@@ -142,6 +150,13 @@ class SignUpViewController: UIViewController, AKFViewControllerDelegate {
                 if  let data = snapshot.value as? [String: String],
                     let phoneNum = data["phone_number"]
                 {
+                    self.accountKit = AKFAccountKit(responseType:.accessToken)
+                    self.accountKit.requestAccount({ (account, error) in
+                        if let phoneNumber = account?.phoneNumber{
+                            globalVar.number = phoneNumber.stringRepresentation()
+                        }
+                    })
+                    
                     if(globalVar.number == phoneNum){
                        self.signupTest+=10
                     }
