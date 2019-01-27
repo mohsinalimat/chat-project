@@ -110,29 +110,33 @@ class SignUpViewController: UIViewController, AKFViewControllerDelegate {
             loginTest = 1
             //check if the phone number exists in the database if so use the name in the database
             ref = Database.database().reference()
+            
+            self.accountKit = AKFAccountKit(responseType: AKFResponseType.accessToken)
+            self.accountKit.requestAccount {
+                (account, error) -> Void in
+                if let phoneNumber = account?.phoneNumber{
+                    globalVar.number = phoneNumber.stringRepresentation()
+                }
+            }
+            
             ref?.child("users").observe(.childAdded, with: { (snapshot) in
-                if  let data = snapshot.value as? [String: String],
-                    let full_name = data["full_name"],
-                    let phoneNum = data["phone_number"]
-                {
-                    
-                    self.accountKit = AKFAccountKit(responseType: AKFResponseType.accessToken)
-                    self.accountKit.requestAccount {
-                        (account, error) -> Void in
-                        if let phoneNumber = account?.phoneNumber{
-                            globalVar.number = phoneNumber.stringRepresentation()
-                        }
-                    }
-                    
-                    if(globalVar.number == phoneNum){
-                        self.loginTest+=10
-                        globalVar.fullName = full_name
-                        //move to navigation viewcontroller
-                        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                        let view = storyboard.instantiateViewController(withIdentifier: "navigationViewController") as! UINavigationController
-                        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-                        appDelegate.window?.rootViewController = view
+                let childrenCount = snapshot.childrenCount
+                for _ in 1...childrenCount{
+                    if let data = snapshot.value as? [String: String],
+                        let full_name = data["full_name"],
+                        let phoneNum = data["phone_number"]
+                    {
+                        print(globalVar.number + " " + phoneNum)
                         
+                        if(globalVar.number == phoneNum){
+                            self.loginTest+=10
+                            globalVar.fullName = full_name
+                            //move to navigation viewcontroller
+                            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                            let view = storyboard.instantiateViewController(withIdentifier: "navigationViewController") as! UINavigationController
+                            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                            appDelegate.window?.rootViewController = view
+                        }
                     }
                 }
             })
@@ -141,20 +145,25 @@ class SignUpViewController: UIViewController, AKFViewControllerDelegate {
             signupTest = 1
             //check if the phone number exists in the database if so use the name in the database
             ref = Database.database().reference()
+            
+            self.accountKit = AKFAccountKit(responseType: AKFResponseType.accessToken)
+            self.accountKit.requestAccount {
+                (account, error) -> Void in
+                if let phoneNumber = account?.phoneNumber{
+                    globalVar.number = phoneNumber.stringRepresentation()
+                }
+            }
+            
             ref?.child("users").observe(.childAdded, with: { (snapshot) in
-                if  let data = snapshot.value as? [String: String],
-                    let phoneNum = data["phone_number"]
-                {
-                    self.accountKit = AKFAccountKit(responseType: AKFResponseType.accessToken)
-                    self.accountKit.requestAccount {
-                        (account, error) -> Void in
-                        if let phoneNumber = account?.phoneNumber{
-                            globalVar.number = phoneNumber.stringRepresentation()
+                let childrenCount = snapshot.childrenCount
+                for _ in 1...childrenCount{
+                    if  let data = snapshot.value as? [String: String],
+                        let phoneNum = data["phone_number"]
+                    {
+                        
+                        if(globalVar.number == phoneNum){
+                            self.signupTest+=10
                         }
-                    }
-                    
-                    if(globalVar.number == phoneNum){
-                       self.signupTest+=10
                     }
                 }
             })
