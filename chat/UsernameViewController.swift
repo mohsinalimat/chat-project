@@ -19,6 +19,18 @@ class UsernameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        if accountKit == nil {
+            //specify AKFResponseType.AccessToken
+            self.accountKit = AKFAccountKit(responseType: AKFResponseType.accessToken)
+            accountKit.requestAccount {
+                (account, error) -> Void in
+                if let phoneNumber = account?.phoneNumber{
+                    globalVar.number = phoneNumber.stringRepresentation()
+                }
+            }
+        }
+        
         `continue`.backgroundColor = UIColor(red:0.96, green:0.72, blue:0.74, alpha:1.0)
         self.view.backgroundColor = UIColor(red:0.44, green:0.82, blue:0.82, alpha:1.0)
     }

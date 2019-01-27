@@ -24,14 +24,8 @@ class SignUpViewController: UIViewController, AKFViewControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        //saving phonenumber to global variable
         if(accountKit == nil){
             self.accountKit = AKFAccountKit(responseType:.accessToken)
-            self.accountKit.requestAccount({ (account, error) in
-                if let phoneNumber = account?.phoneNumber{
-                    globalVar.number = phoneNumber.stringRepresentation()
-                }
-            })
         }
         
         //ui design
@@ -122,12 +116,13 @@ class SignUpViewController: UIViewController, AKFViewControllerDelegate {
                     let phoneNum = data["phone_number"]
                 {
                     
-                    self.accountKit = AKFAccountKit(responseType:.accessToken)
-                    self.accountKit.requestAccount({ (account, error) in
+                    self.accountKit = AKFAccountKit(responseType: AKFResponseType.accessToken)
+                    self.accountKit.requestAccount {
+                        (account, error) -> Void in
                         if let phoneNumber = account?.phoneNumber{
                             globalVar.number = phoneNumber.stringRepresentation()
                         }
-                    })
+                    }
                     
                     if(globalVar.number == phoneNum){
                         self.loginTest+=10
@@ -150,12 +145,13 @@ class SignUpViewController: UIViewController, AKFViewControllerDelegate {
                 if  let data = snapshot.value as? [String: String],
                     let phoneNum = data["phone_number"]
                 {
-                    self.accountKit = AKFAccountKit(responseType:.accessToken)
-                    self.accountKit.requestAccount({ (account, error) in
+                    self.accountKit = AKFAccountKit(responseType: AKFResponseType.accessToken)
+                    self.accountKit.requestAccount {
+                        (account, error) -> Void in
                         if let phoneNumber = account?.phoneNumber{
                             globalVar.number = phoneNumber.stringRepresentation()
                         }
-                    })
+                    }
                     
                     if(globalVar.number == phoneNum){
                        self.signupTest+=10

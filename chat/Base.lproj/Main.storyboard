@@ -192,9 +192,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Settings" id="zZc-aP-RZR">
                             <connections>
-                                <segue destination="TSf-I5-GKU" kind="popoverPresentation" identifier="settingsSegue" popoverAnchorBarButtonItem="zZc-aP-RZR" id="FUL-70-qal">
-                                    <popoverArrowDirection key="popoverArrowDirection" left="YES"/>
-                                </segue>
+                                <segue destination="TSf-I5-GKU" kind="show" identifier="settingsSegue" id="FUL-70-qal"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -250,33 +248,16 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c3x-xk-CMO">
-                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                                <items>
-                                    <navigationItem title="Settings" id="6fL-vW-XW4">
-                                        <barButtonItem key="leftBarButtonItem" title="back" id="yaA-7j-TMs">
-                                            <connections>
-                                                <action selector="backButton:" destination="TSf-I5-GKU" id="510-YL-y6Z"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="ZNF-nf-scb" firstAttribute="top" secondItem="c3x-xk-CMO" secondAttribute="bottom" constant="106" id="1nx-n4-NwJ"/>
                             <constraint firstItem="rpg-xe-siJ" firstAttribute="trailing" secondItem="8YN-nP-x2i" secondAttribute="trailing" constant="16" id="9RX-oN-FiK"/>
-                            <constraint firstItem="c3x-xk-CMO" firstAttribute="leading" secondItem="rpg-xe-siJ" secondAttribute="leading" id="LRN-Yj-rvg"/>
                             <constraint firstItem="8YN-nP-x2i" firstAttribute="leading" secondItem="rpg-xe-siJ" secondAttribute="leading" constant="16" id="WJC-Yz-vzF"/>
                             <constraint firstItem="rpg-xe-siJ" firstAttribute="trailing" secondItem="ZNF-nf-scb" secondAttribute="trailing" constant="16" id="dPr-2S-fRv"/>
                             <constraint firstItem="8YN-nP-x2i" firstAttribute="top" secondItem="ZNF-nf-scb" secondAttribute="bottom" constant="33" id="hRF-sh-za7"/>
-                            <constraint firstItem="c3x-xk-CMO" firstAttribute="trailing" secondItem="rpg-xe-siJ" secondAttribute="trailing" id="iU4-1n-zF1"/>
                             <constraint firstItem="8YN-nP-x2i" firstAttribute="top" secondItem="ZNF-nf-scb" secondAttribute="bottom" constant="33" id="ivt-Ip-XYS"/>
                             <constraint firstItem="rpg-xe-siJ" firstAttribute="bottom" secondItem="8YN-nP-x2i" secondAttribute="bottom" constant="368" id="lmR-oR-WJW"/>
                             <constraint firstItem="ZNF-nf-scb" firstAttribute="leading" secondItem="rpg-xe-siJ" secondAttribute="leading" constant="16" id="rdT-X8-7HL"/>
-                            <constraint firstItem="c3x-xk-CMO" firstAttribute="top" secondItem="rpg-xe-siJ" secondAttribute="top" id="xCR-YY-lIl"/>
-                            <constraint firstItem="ZNF-nf-scb" firstAttribute="top" secondItem="c3x-xk-CMO" secondAttribute="bottom" constant="106" id="xF4-m0-gAj"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="rpg-xe-siJ"/>
                     </view>
