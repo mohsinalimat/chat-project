@@ -1,4 +1,4 @@
-# [Chat] 
+# Chat
 
 ### Login/Signup 
 * facebook AccountKit
@@ -8,3 +8,6 @@
 
 ### Dependencies
 * messageKit
+
+# Author
+- Chris Park
