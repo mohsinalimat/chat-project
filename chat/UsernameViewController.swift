@@ -38,6 +38,7 @@ class UsernameViewController: UIViewController {
     //saves full name in global fullname variable
     @IBAction func `continue`(_ sender: Any) {
         globalVar.fullName = fullName.text!
+        //if inputbox is empty, present alert message if not add name/phone number to databsase
         if((fullName.text?.isEmpty)!){
             let alert = UIAlertController(title: "ERROR", message: "Please enter a name!", preferredStyle: UIAlertController.Style.alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))

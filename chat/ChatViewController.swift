@@ -32,7 +32,8 @@ class ChatViewController: MessagesViewController{
             layout.setMessageOutgoingAvatarSize(.zero)
         }
 
-        let query = Constants.refs.databaseChats.queryLimited(toLast: 10)
+        //get last 1000 messages and load those messages
+        let query = Constants.refs.databaseChats.queryLimited(toLast: 1000)
         
         _ = query.observe(.childAdded, with: { [weak self] snapshot in
             

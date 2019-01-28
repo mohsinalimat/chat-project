@@ -11,7 +11,6 @@ import UIKit
 class SettingsViewController: UIViewController {
     @IBOutlet weak var fullName: UILabel!
     @IBOutlet weak var phoneNumber: UILabel!
-    @IBOutlet weak var settingsLabel: UILabel!
     
     var user: User!
 
@@ -21,14 +20,12 @@ class SettingsViewController: UIViewController {
         fullName.text = "My name: \(user.name)"
         phoneNumber.text = "My number is: \(user.phoneNumber)"
         self.view.backgroundColor = UIColor(red:0.44, green:0.82, blue:0.82, alpha:1.0)
-    }
-    
-    @IBAction func backButton(_ sender: Any) {
-        //move to navigation viewcontroller
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let view = storyboard.instantiateViewController(withIdentifier: "navigationViewController") as! UINavigationController
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        appDelegate.window?.rootViewController = view
+        fullName.backgroundColor = UIColor(red:0.96, green:0.72, blue:0.74, alpha:1.0)
+        fullName.layer.masksToBounds = true
+        fullName.layer.cornerRadius = 10
+        phoneNumber.backgroundColor = UIColor(red:0.96, green:0.72, blue:0.74, alpha:1.0)
+        phoneNumber.layer.masksToBounds = true
+        phoneNumber.layer.cornerRadius = 10
     }
     
     /*

@@ -28,7 +28,7 @@ class SignUpViewController: UIViewController, AKFViewControllerDelegate {
             self.accountKit = AKFAccountKit(responseType:.accessToken)
         }
         
-        //ui design
+        //buttons/background color 
         login.backgroundColor = UIColor(red:0.96, green:0.72, blue:0.74, alpha:1.0)
         signup.backgroundColor = UIColor(red:0.96, green:0.72, blue:0.74, alpha:1.0)
         self.view.backgroundColor = UIColor(red:0.44, green:0.82, blue:0.82, alpha:1.0)
@@ -58,7 +58,6 @@ class SignUpViewController: UIViewController, AKFViewControllerDelegate {
         
         //present alertcontroller if login and signup fails
         if(self.loginTest == 1){
-            print("ERROR")
             let alert = UIAlertController(title: "ERROR", message: "Please sign up first!", preferredStyle: UIAlertController.Style.alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
@@ -66,7 +65,6 @@ class SignUpViewController: UIViewController, AKFViewControllerDelegate {
         }
         
         if(signupTest > 1){
-            print("ERROR")
             let alert = UIAlertController(title: "ERROR", message: "Phone number already exists!", preferredStyle: UIAlertController.Style.alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
@@ -108,7 +106,7 @@ class SignUpViewController: UIViewController, AKFViewControllerDelegate {
                         didCompleteLoginWith accessToken: AKFAccessToken!, state: String!) {
         if(loginOrSignUp == "login"){
             loginTest = 1
-            //check if the phone number exists in the database if so use the name in the database
+            //check if the phone number does not in the database if so present alert message
             ref = Database.database().reference()
             
             self.accountKit = AKFAccountKit(responseType: AKFResponseType.accessToken)
@@ -125,9 +123,7 @@ class SignUpViewController: UIViewController, AKFViewControllerDelegate {
                     if let data = snapshot.value as? [String: String],
                         let full_name = data["full_name"],
                         let phoneNum = data["phone_number"]
-                    {
-                        print(globalVar.number + " " + phoneNum)
-                        
+                    {                        
                         if(globalVar.number == phoneNum){
                             self.loginTest+=10
                             globalVar.fullName = full_name
@@ -143,7 +139,7 @@ class SignUpViewController: UIViewController, AKFViewControllerDelegate {
             signupTest = -1
         }else if(loginOrSignUp == "signup"){
             signupTest = 1
-            //check if the phone number exists in the database if so use the name in the database
+            //check if the phone number exists in the database if so present alert message
             ref = Database.database().reference()
             
             self.accountKit = AKFAccountKit(responseType: AKFResponseType.accessToken)

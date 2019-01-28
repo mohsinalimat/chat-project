@@ -11,7 +11,6 @@ target 'chat' do
   pod 'Firebase/Core'
   pod 'Firebase/Database'
   pod 'Firebase/Storage'
-  pod 'Firebase/Firestore'
 
   target 'chatTests' do
     inherit! :search_paths
